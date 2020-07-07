@@ -1,0 +1,10 @@
+{
+  "commitish" : "v8.1.1",
+  "iOS" : [
+    {
+      "name" : "Nimble",
+      "hash" : "62e5fc3b0d304a3491000eb996485e38d2b92c09fb8a4719456824d6981b07d1",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ]
+}

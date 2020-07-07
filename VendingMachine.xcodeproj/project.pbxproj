@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,13 @@
 		B60E447E24B40FD200067F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60E447C24B40FD200067F04 /* LaunchScreen.storyboard */; };
 		B60E448924B40FD200067F04 /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E448824B40FD200067F04 /* VendingMachineTests.swift */; };
 		B60E449424B40FD200067F04 /* VendingMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E449324B40FD200067F04 /* VendingMachineUITests.swift */; };
+		B60E44A424B429F500067F04 /* AcceptCoinsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E44A324B429F500067F04 /* AcceptCoinsManager.swift */; };
+		B60E44A624B42C2300067F04 /* AcceptCoinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E44A524B42C2300067F04 /* AcceptCoinManagerTests.swift */; };
+		B60E44A924B42D9500067F04 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B60E44A824B42D9500067F04 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B60E44AB24B42DA900067F04 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B60E44AF24B42E2D00067F04 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44A824B42D9500067F04 /* Nimble.framework */; };
+		B6CC37AD24B431470019942B /* Suite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37AC24B431470019942B /* Suite.swift */; };
+		B6CC37AE24B433570019942B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +41,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B60E44A724B42D7000067F04 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B60E44AB24B42DA900067F04 /* Quick.framework in CopyFiles */,
+				B60E44A924B42D9500067F04 /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B60E446E24B40FD000067F04 /* VendingMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60E447124B40FD000067F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +70,12 @@
 		B60E448F24B40FD200067F04 /* VendingMachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60E449324B40FD200067F04 /* VendingMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUITests.swift; sourceTree = "<group>"; };
 		B60E449524B40FD200067F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B60E44A324B429F500067F04 /* AcceptCoinsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptCoinsManager.swift; sourceTree = "<group>"; };
+		B60E44A524B42C2300067F04 /* AcceptCoinManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptCoinManagerTests.swift; sourceTree = "<group>"; };
+		B60E44A824B42D9500067F04 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		B60E44AA24B42DA900067F04 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		B60E44AD24B42DB600067F04 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
+		B6CC37AC24B431470019942B /* Suite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CC37AE24B433570019942B /* Quick.framework in Frameworks */,
+				B60E44AF24B42E2D00067F04 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +108,13 @@
 		B60E446524B40FD000067F04 = {
 			isa = PBXGroup;
 			children = (
+				B60E44AA24B42DA900067F04 /* Quick.framework */,
+				B60E44A824B42D9500067F04 /* Nimble.framework */,
 				B60E447024B40FD000067F04 /* VendingMachine */,
 				B60E448724B40FD200067F04 /* VendingMachineTests */,
 				B60E449224B40FD200067F04 /* VendingMachineUITests */,
 				B60E446F24B40FD000067F04 /* Products */,
+				B60E44AC24B42DB600067F04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +134,7 @@
 				B60E447124B40FD000067F04 /* AppDelegate.swift */,
 				B60E447324B40FD000067F04 /* SceneDelegate.swift */,
 				B60E447524B40FD000067F04 /* ViewController.swift */,
+				B60E44A324B429F500067F04 /* AcceptCoinsManager.swift */,
 				B60E447724B40FD000067F04 /* Main.storyboard */,
 				B60E447A24B40FD200067F04 /* Assets.xcassets */,
 				B60E447C24B40FD200067F04 /* LaunchScreen.storyboard */,
@@ -114,7 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				B60E448824B40FD200067F04 /* VendingMachineTests.swift */,
+				B60E44A524B42C2300067F04 /* AcceptCoinManagerTests.swift */,
 				B60E448A24B40FD200067F04 /* Info.plist */,
+				B6CC37AC24B431470019942B /* Suite.swift */,
 			);
 			path = VendingMachineTests;
 			sourceTree = "<group>";
@@ -126,6 +161,14 @@
 				B60E449524B40FD200067F04 /* Info.plist */,
 			);
 			path = VendingMachineUITests;
+			sourceTree = "<group>";
+		};
+		B60E44AC24B42DB600067F04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B60E44AD24B42DB600067F04 /* QuickLook.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +198,7 @@
 				B60E448024B40FD200067F04 /* Sources */,
 				B60E448124B40FD200067F04 /* Frameworks */,
 				B60E448224B40FD200067F04 /* Resources */,
+				B60E44A724B42D7000067F04 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -208,7 +252,7 @@
 				};
 			};
 			buildConfigurationList = B60E446924B40FD000067F04 /* Build configuration list for PBXProject "VendingMachine" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -261,6 +305,7 @@
 			files = (
 				B60E447624B40FD000067F04 /* ViewController.swift in Sources */,
 				B60E447224B40FD000067F04 /* AppDelegate.swift in Sources */,
+				B60E44A424B429F500067F04 /* AcceptCoinsManager.swift in Sources */,
 				B60E447424B40FD000067F04 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +314,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CC37AD24B431470019942B /* Suite.swift in Sources */,
+				B60E44A624B42C2300067F04 /* AcceptCoinManagerTests.swift in Sources */,
 				B60E448924B40FD200067F04 /* VendingMachineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GK45727PA2;
 				INFOPLIST_FILE = VendingMachine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GK45727PA2;
 				INFOPLIST_FILE = VendingMachine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,6 +519,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GK45727PA2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VendingMachineTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -491,6 +545,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GK45727PA2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VendingMachineTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
