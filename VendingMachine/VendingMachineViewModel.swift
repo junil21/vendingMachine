@@ -9,57 +9,41 @@
 import UIKit
 
 class VendingMachineViewModel: NSObject {
-
-    var insertedCoins: InsertedCoins = InsertedCoins.noCoin
     private var insertedAmount: Double = 0
 
-    let acceptCoinManager: AcceptCoinsManager!
+    let coinManager: CoinManager!
 
-    init(acceptCoinsManager: AcceptCoinsManager) {
-        self.acceptCoinManager = acceptCoinsManager
+    init(acceptCoinsManager: CoinManager) {
+        self.coinManager = acceptCoinsManager
     }
 
     func insertCoin(coin: Coin) {
-
-        guard acceptCoinManager.isValidCoin(insertedCoin: coin) else {
-            return
-        }
-
-        var nickels = insertedCoins.countNickel
-        var dimes = insertedCoins.countDime
-        var quarters = insertedCoins.countQuarter
-
-        switch coin {
-        case .nickel:
-            nickels += 1
-        case .dime:
-            dimes += 1
-        case .quarter:
-            quarters += 1
-        default:
-            break
-        }
-
-        insertedCoins = InsertedCoins(countNickel: nickels, countDime: dimes, countQuarter: quarters)
-    }
-
-    func getInsertedAmount() -> Double {
-        var amount = Double(insertedCoins.countDime) * Coin.dime.rawValue
-        amount += Double(insertedCoins.countNickel) * Coin.nickel.rawValue
-        amount += Double(insertedCoins.countQuarter) * Coin.quarter.rawValue
-
-        return amount
+        coinManager.insertCoin(coin: coin)
     }
 
     func getCoinAmountText() -> String {
-        let amount = getInsertedAmount()
+        let amount = coinManager.getInsertedAmount()
         if amount == 0 {
-            return "INSERT COIN"
+            return Strings.insufficientCoinText
         }
         
         return String(format: "%.2f", amount)
     }
+
+    func selectProduct(selectedProductType: ProductType) -> MachineDisplayStatus {
+        if coinManager.hasEnoughFund(product: selectedProductType.product) {
+            coinManager.justSoldAnItem()
+            return .productSold
+        }
+        return .insufficientFund
+    }
     
+}
+
+enum MachineDisplayStatus: String {
+    case someCoins
+    case productSold
+    case insufficientFund = "INSERT COIN"
 }
 
 struct InsertedCoins: Equatable {

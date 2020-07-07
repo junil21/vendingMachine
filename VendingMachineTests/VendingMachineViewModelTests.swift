@@ -15,28 +15,23 @@ class VendingMachineViewModelTests: QuickSpec {
     override func spec() {
         describe("VendingMachineViewModel") {
             var subject: VendingMachineViewModel!
+            var coinManager: MockCoinManager!
+
 
             beforeEach {
-                subject = VendingMachineViewModel(acceptCoinsManager: AcceptCoinsManager())
+                coinManager = MockCoinManager()
+                subject = VendingMachineViewModel(acceptCoinsManager: coinManager)
             }
 
             describe("insert coins") {
-
-                let expectedInsertedAmount = 0.35
-                let expectedInsertedCoins = InsertedCoins(countNickel: 0, countDime: 1, countQuarter: 1)
+                let expectedCoin = Coin.quarter
 
                 beforeEach {
-                    subject.insertCoin(coin: .dime)
-                    subject.insertCoin(coin: .penny)
-                    subject.insertCoin(coin: .quarter)
+                    coinManager.insertCoin(coin: .quarter)
                 }
 
                 it("updates inserted coins") {
-                    expect(subject.insertedCoins).to(equal(expectedInsertedCoins))
-                }
-
-                it("updates inserted amount") {
-                    expect(subject.getInsertedAmount()).to(equal(expectedInsertedAmount))
+                    expect(coinManager).to(invoke(.insertCoin, withParameter: expectedCoin))
                 }
             }
 
@@ -45,11 +40,12 @@ class VendingMachineViewModelTests: QuickSpec {
                     var insertedAmountString: String!
 
                     beforeEach {
+                        coinManager.setReturnValue(for: .getInsertedAmount, with: Double.zero)
                         insertedAmountString = subject.getCoinAmountText()
                     }
 
                     it("shows directional text with no coin") {
-                        expect(insertedAmountString).to(equal("INSERT COIN"))
+                        expect(insertedAmountString).to(equal(Strings.insufficientCoinText))
                     }
                 }
 
@@ -57,7 +53,7 @@ class VendingMachineViewModelTests: QuickSpec {
                     var insertedAmountString: String!
 
                     beforeEach {
-                        subject.insertCoin(coin: .quarter)
+                        coinManager.setReturnValue(for: .getInsertedAmount, with: Double(0.25))
                         insertedAmountString = subject.getCoinAmountText()
                     }
 

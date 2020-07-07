@@ -1,5 +1,5 @@
 //
-//  AcceptCoinManager.swift
+//  CoinManagerTest.swift
 //  VendingMachineTests
 //
 //  Created by Junil Choi on 7/7/20.
@@ -14,10 +14,10 @@ import Nimble
 class CoinManagerTests: QuickSpec {
     override func spec() {
         describe("AcceptCoinManager") {
-            var subject: CoinsManager!
+            var subject: CoinManager!
 
             beforeEach {
-                subject = CoinsManager()
+                subject = CoinManager()
             }
 
             describe("validate acceptable coins") {
@@ -36,6 +36,26 @@ class CoinManagerTests: QuickSpec {
 
                 it("doesn't accept penny") {
                     expect(subject.isValidCoin(insertedCoin: .penny)).to(beFalse())
+                }
+            }
+
+            describe("insert Coin") {
+
+                let expectedInsertedAmount = 0.40
+                let expectedInsertedCoin = InsertedCoins(countNickel: 1, countDime: 1, countQuarter: 1)
+
+                beforeEach {
+                    subject.insertCoin(coin: .nickel)
+                    subject.insertCoin(coin: .dime)
+                    subject.insertCoin(coin: .quarter)
+                }
+
+                it("updates inserted coin") {
+                    expect(subject.getInsertedCoin()).to(equal(expectedInsertedCoin))
+                }
+
+                it("updates inserted amount") {
+                    expect(subject.getInsertedAmount()).to(equal(expectedInsertedAmount))
                 }
             }
         }
