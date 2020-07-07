@@ -18,7 +18,7 @@ class AcceptCoinsManager {
 
 }
 
-enum Coin: Float {
+enum Coin: Double {
     case penny = 0.01
     case nickel = 0.05
     case dime = 0.10
