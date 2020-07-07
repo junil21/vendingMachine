@@ -23,6 +23,7 @@ class VendingMachineViewModelTests: QuickSpec {
             describe("insert coins") {
 
                 let expectedInsertedAmount = 0.35
+                let expectedInsertedCoins = InsertedCoins(countNickel: 0, countDime: 1, countQuarter: 1)
 
                 beforeEach {
                     subject.insertCoin(coin: .dime)
@@ -30,8 +31,12 @@ class VendingMachineViewModelTests: QuickSpec {
                     subject.insertCoin(coin: .quarter)
                 }
 
+                it("updates inserted coins") {
+                    expect(subject.insertedCoins).to(equal(expectedInsertedCoins))
+                }
+
                 it("updates inserted amount") {
-                    expect(subject.insertedAmount).to(equal(expectedInsertedAmount))
+                    expect(subject.getInsertedAmount()).to(equal(expectedInsertedAmount))
                 }
             }
 

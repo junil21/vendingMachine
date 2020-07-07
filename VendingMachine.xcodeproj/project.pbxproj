@@ -23,6 +23,7 @@
 		B6CC37AE24B433570019942B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; };
 		B6CC37B024B437530019942B /* VendingMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */; };
 		B6CC37B224B43BC40019942B /* VendingMachineViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */; };
+		B6CC37B624B44D160019942B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37B524B44D160019942B /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		B6CC37AC24B431470019942B /* Suite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suite.swift; sourceTree = "<group>"; };
 		B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModel.swift; sourceTree = "<group>"; };
 		B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModelTests.swift; sourceTree = "<group>"; };
+		B6CC37B524B44D160019942B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				B60E447524B40FD000067F04 /* ViewController.swift */,
 				B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */,
 				B60E44A324B429F500067F04 /* AcceptCoinsManager.swift */,
+				B6CC37B524B44D160019942B /* Product.swift */,
 				B60E447724B40FD000067F04 /* Main.storyboard */,
 				B60E447A24B40FD200067F04 /* Assets.xcassets */,
 				B60E447C24B40FD200067F04 /* LaunchScreen.storyboard */,
@@ -311,6 +314,7 @@
 				B60E447224B40FD000067F04 /* AppDelegate.swift in Sources */,
 				B60E44A424B429F500067F04 /* AcceptCoinsManager.swift in Sources */,
 				B60E447424B40FD000067F04 /* SceneDelegate.swift in Sources */,
+				B6CC37B624B44D160019942B /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
