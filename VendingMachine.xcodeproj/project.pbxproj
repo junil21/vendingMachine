@@ -13,7 +13,6 @@
 		B60E447924B40FD000067F04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60E447724B40FD000067F04 /* Main.storyboard */; };
 		B60E447B24B40FD200067F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B60E447A24B40FD200067F04 /* Assets.xcassets */; };
 		B60E447E24B40FD200067F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60E447C24B40FD200067F04 /* LaunchScreen.storyboard */; };
-		B60E448924B40FD200067F04 /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E448824B40FD200067F04 /* VendingMachineTests.swift */; };
 		B60E449424B40FD200067F04 /* VendingMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E449324B40FD200067F04 /* VendingMachineUITests.swift */; };
 		B60E44A424B429F500067F04 /* AcceptCoinsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E44A324B429F500067F04 /* AcceptCoinsManager.swift */; };
 		B60E44A624B42C2300067F04 /* AcceptCoinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E44A524B42C2300067F04 /* AcceptCoinManagerTests.swift */; };
@@ -65,7 +64,6 @@
 		B60E447D24B40FD200067F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B60E447F24B40FD200067F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60E448424B40FD200067F04 /* VendingMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B60E448824B40FD200067F04 /* VendingMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineTests.swift; sourceTree = "<group>"; };
 		B60E448A24B40FD200067F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60E448F24B40FD200067F04 /* VendingMachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60E449324B40FD200067F04 /* VendingMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUITests.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 		B60E448724B40FD200067F04 /* VendingMachineTests */ = {
 			isa = PBXGroup;
 			children = (
-				B60E448824B40FD200067F04 /* VendingMachineTests.swift */,
 				B60E44A524B42C2300067F04 /* AcceptCoinManagerTests.swift */,
 				B60E448A24B40FD200067F04 /* Info.plist */,
 				B6CC37AC24B431470019942B /* Suite.swift */,
@@ -316,7 +313,6 @@
 			files = (
 				B6CC37AD24B431470019942B /* Suite.swift in Sources */,
 				B60E44A624B42C2300067F04 /* AcceptCoinManagerTests.swift in Sources */,
-				B60E448924B40FD200067F04 /* VendingMachineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
