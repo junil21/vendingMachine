@@ -17,6 +17,7 @@ class MockCoinManager: CoinManager, Mockable {
         case insertCoin
         case getInsertedAmount
         case getInsertedCoin
+        case hasEnoughFund
     }
 
     override func insertCoin(coin: Coin) {
@@ -31,5 +32,10 @@ class MockCoinManager: CoinManager, Mockable {
     override func getInsertedCoin() -> InsertedCoins {
         record(invocation: .getInsertedCoin)
         return returnValue(for: .getInsertedCoin)!
+    }
+
+    override func hasEnoughFund(product: Product) -> Bool {
+        record(invocation: .hasEnoughFund)
+        return returnValue(for: .hasEnoughFund)!
     }
 }

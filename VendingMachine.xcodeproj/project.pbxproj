@@ -147,18 +147,18 @@
 		B60E447024B40FD000067F04 /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
+				B60E447F24B40FD200067F04 /* Info.plist */,
 				B60E447124B40FD000067F04 /* AppDelegate.swift */,
-				B60E447324B40FD000067F04 /* SceneDelegate.swift */,
-				B60E447524B40FD000067F04 /* ViewController.swift */,
-				B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */,
-				B6CC37B724B4941C0019942B /* ProductManager.swift */,
 				B60E44A324B429F500067F04 /* CoinManager.swift */,
 				B6CC37B524B44D160019942B /* Product.swift */,
-				B60E447724B40FD000067F04 /* Main.storyboard */,
+				B6CC37B724B4941C0019942B /* ProductManager.swift */,
+				B60E447324B40FD000067F04 /* SceneDelegate.swift */,
+				B6CC37D024B49C820019942B /* Strings.swift */,
+				B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */,
+				B60E447524B40FD000067F04 /* ViewController.swift */,
 				B60E447A24B40FD200067F04 /* Assets.xcassets */,
 				B60E447C24B40FD200067F04 /* LaunchScreen.storyboard */,
-				B60E447F24B40FD200067F04 /* Info.plist */,
-				B6CC37D024B49C820019942B /* Strings.swift */,
+				B60E447724B40FD000067F04 /* Main.storyboard */,
 			);
 			path = VendingMachine;
 			sourceTree = "<group>";

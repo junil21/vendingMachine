@@ -62,6 +62,32 @@ class VendingMachineViewModelTests: QuickSpec {
                     }
                 }
             }
+
+            describe("select product") {
+                var actualMachineStatus: MachineDisplayStatus!
+
+                describe("sufficient fund") {
+                    beforeEach {
+                        coinManager.setReturnValue(for: .hasEnoughFund, with: true)
+                        actualMachineStatus = subject.selectProduct(selectedProductType: .cola)
+                    }
+
+                    it("returns productSold status") {
+                        expect(actualMachineStatus).to(equal(.productSold))
+                    }
+                }
+
+                describe("sufficient fund") {
+                    beforeEach {
+                        coinManager.setReturnValue(for: .hasEnoughFund, with: false)
+                        actualMachineStatus = subject.selectProduct(selectedProductType: .cola)
+                    }
+
+                    it("returns insufficientFund status") {
+                        expect(actualMachineStatus).to(equal(.insufficientFund))
+                    }
+                }
+            }
         }
     }
 }
