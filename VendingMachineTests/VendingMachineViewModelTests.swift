@@ -24,10 +24,10 @@ class VendingMachineViewModelTests: QuickSpec {
             }
 
             describe("insert coins") {
-                let expectedCoin = Coin.quarter
+                let expectedCoin = CoinType.quarter.coin
 
                 beforeEach {
-                    coinManager.insertCoin(coin: .quarter)
+                    coinManager.insertCoin(coin: CoinType.quarter.coin)
                 }
 
                 it("updates inserted coins") {

@@ -23,39 +23,65 @@ class CoinManagerTests: QuickSpec {
             describe("validate acceptable coins") {
 
                 it("accepts dime") {
-                    expect(subject.isValidCoin(insertedCoin: .dime)).to(beTrue())
+                    expect(subject.isValidCoin(insertedCoin: CoinType.dime.coin)).to(beTrue())
                 }
 
                 it("accepts nickel") {
-                    expect(subject.isValidCoin(insertedCoin: .nickel)).to(beTrue())
+                    expect(subject.isValidCoin(insertedCoin: CoinType.nickel.coin)).to(beTrue())
                 }
 
                 it("accepts quarter") {
-                    expect(subject.isValidCoin(insertedCoin: .quarter)).to(beTrue())
+                    expect(subject.isValidCoin(insertedCoin: CoinType.quarter.coin)).to(beTrue())
                 }
 
                 it("doesn't accept penny") {
-                    expect(subject.isValidCoin(insertedCoin: .penny)).to(beFalse())
+                    expect(subject.isValidCoin(insertedCoin: CoinType.penny.coin)).to(beFalse())
                 }
             }
 
             describe("insert Coin") {
 
-                let expectedInsertedAmount = 0.40
-                let expectedInsertedCoin = InsertedCoins(countNickel: 1, countDime: 1, countQuarter: 1)
+                let expectedInsertedAmount = 0.50
+                let expectedInsertedCoins = [CoinType.dime.coin, CoinType.nickel.coin, CoinType.quarter.coin, CoinType.dime.coin]
 
                 beforeEach {
-                    subject.insertCoin(coin: .nickel)
-                    subject.insertCoin(coin: .dime)
-                    subject.insertCoin(coin: .quarter)
+                    subject.insertCoin(coin: CoinType.dime.coin)
+                    subject.insertCoin(coin: CoinType.nickel.coin)
+                    subject.insertCoin(coin: CoinType.quarter.coin)
+                    subject.insertCoin(coin: CoinType.dime.coin)
                 }
 
                 it("updates inserted coin") {
-                    expect(subject.getInsertedCoin()).to(equal(expectedInsertedCoin))
+                    expect(subject.insertedCoins).to(equal(expectedInsertedCoins))
                 }
 
                 it("updates inserted amount") {
                     expect(subject.getInsertedAmount()).to(equal(expectedInsertedAmount))
+                }
+
+                describe("check the fund is enough to buy product") {
+                    var actual: Bool!
+                    describe("has enough fund") {
+
+                        beforeEach {
+                            actual = subject.hasEnoughFund(product: ProductType.chips.product)
+                        }
+
+                        it("returns result") {
+                            expect(actual).to(beTrue())
+                        }
+                    }
+
+                    describe("has not enough fund") {
+
+                        beforeEach {
+                            actual = subject.hasEnoughFund(product: ProductType.cola.product)
+                        }
+
+                        it("returns") {
+                            expect(actual).to(beFalse())
+                        }
+                    }
                 }
             }
         }

@@ -10,48 +10,25 @@ import Foundation
 
 class CoinManager {
 
-    var insertedCoins: InsertedCoins = .noCoin
+    private(set) var insertedCoins: [Coin] = []
+    private(set) var returnedCoins: [Coin] = []
 
-    let acceptableCoins: [Coin] = [.dime, .nickel, .quarter]
+    let acceptableCoins: [CoinType] = [.dime, .nickel, .quarter]
 
     func isValidCoin(insertedCoin: Coin) -> Bool {
-        return acceptableCoins.contains(insertedCoin)
+        return acceptableCoins.contains(insertedCoin.type)
     }
 
     func insertCoin(coin: Coin) {
-
-        guard isValidCoin(insertedCoin: coin) else {
-            return
-        }
-
-        var nickels = insertedCoins.countNickel
-        var dimes = insertedCoins.countDime
-        var quarters = insertedCoins.countQuarter
-
-        switch coin {
-        case .nickel:
-            nickels += 1
-        case .dime:
-            dimes += 1
-        case .quarter:
-            quarters += 1
-        default:
-            break
-        }
-
-        insertedCoins = InsertedCoins(countNickel: nickels, countDime: dimes, countQuarter: quarters)
-    }
-
-    func getInsertedCoin() -> InsertedCoins {
-        return insertedCoins
+        isValidCoin(insertedCoin: coin) ? insertedCoins.append(coin) : returnedCoins.append(coin)
     }
 
     func getInsertedAmount() -> Double {
-        var amount = Double(insertedCoins.countDime) * Coin.dime.rawValue
-        amount += Double(insertedCoins.countNickel) * Coin.nickel.rawValue
-        amount += Double(insertedCoins.countQuarter) * Coin.quarter.rawValue
+        return insertedCoins.reduce(0) { $0 + $1.value }
+    }
 
-        return amount
+    func getReturnedAmount() -> Double {
+        return returnedCoins.reduce(0) { $0 + $1.value }
     }
 
     func hasEnoughFund(product: Product) -> Bool {
@@ -59,14 +36,7 @@ class CoinManager {
     }
 
     func justSoldAnItem() {
-        insertedCoins = .noCoin
+        insertedCoins = []
     }
 
-}
-
-enum Coin: Double {
-    case penny = 0.01
-    case nickel = 0.05
-    case dime = 0.10
-    case quarter = 0.25
 }

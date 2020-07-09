@@ -29,11 +29,6 @@ class MockCoinManager: CoinManager, Mockable {
         return returnValue(for: .getInsertedAmount)!
     }
 
-    override func getInsertedCoin() -> InsertedCoins {
-        record(invocation: .getInsertedCoin)
-        return returnValue(for: .getInsertedCoin)!
-    }
-
     override func hasEnoughFund(product: Product) -> Bool {
         record(invocation: .hasEnoughFund)
         return returnValue(for: .hasEnoughFund)!

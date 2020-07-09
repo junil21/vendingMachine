@@ -12,9 +12,11 @@ class VendingMachineViewModel: NSObject {
     private var insertedAmount: Double = 0
 
     let coinManager: CoinManager!
+    let productManager: ProductManager!
 
-    init(acceptCoinsManager: CoinManager) {
-        self.coinManager = acceptCoinsManager
+    init(coinManager: CoinManager, productManager: ProductManager) {
+        self.coinManager = coinManager
+        self.productManager = productManager
     }
 
     func insertCoin(coin: Coin) {
@@ -23,11 +25,12 @@ class VendingMachineViewModel: NSObject {
 
     func getCoinAmountText() -> String {
         let amount = coinManager.getInsertedAmount()
-        if amount == 0 {
-            return Strings.insufficientCoinText
-        }
-        
-        return String(format: "%.2f", amount)
+        return amount != 0 ? String(format: "%.2f", amount) : Strings.insufficientCoinText
+    }
+
+    func getReturnedCoinAmountText() -> String {
+        let amount = coinManager.getReturnedAmount()
+        return amount != 0 ? String(format: "%.2f", amount) : ""
     }
 
     func selectProduct(selectedProductType: ProductType) -> MachineDisplayStatus {
@@ -37,19 +40,12 @@ class VendingMachineViewModel: NSObject {
         }
         return .insufficientFund
     }
-    
 }
 
 enum MachineDisplayStatus: String {
     case someCoins
     case productSold
-    case insufficientFund = "INSERT COIN"
+    case insufficientFund
+    case noCoin
 }
 
-struct InsertedCoins: Equatable {
-    let countNickel: Int
-    let countDime: Int
-    let countQuarter: Int
-
-    static let noCoin = InsertedCoins(countNickel: 0, countDime: 0, countQuarter: 0)
-}

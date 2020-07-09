@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B60E447224B40FD000067F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E447124B40FD000067F04 /* AppDelegate.swift */; };
 		B60E447424B40FD000067F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E447324B40FD000067F04 /* SceneDelegate.swift */; };
-		B60E447624B40FD000067F04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E447524B40FD000067F04 /* ViewController.swift */; };
+		B60E447624B40FD000067F04 /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E447524B40FD000067F04 /* VendingMachineViewController.swift */; };
 		B60E447924B40FD000067F04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60E447724B40FD000067F04 /* Main.storyboard */; };
 		B60E447B24B40FD200067F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B60E447A24B40FD200067F04 /* Assets.xcassets */; };
 		B60E447E24B40FD200067F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60E447C24B40FD200067F04 /* LaunchScreen.storyboard */; };
@@ -19,6 +19,7 @@
 		B60E44A924B42D9500067F04 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B60E44A824B42D9500067F04 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B60E44AB24B42DA900067F04 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B60E44AF24B42E2D00067F04 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44A824B42D9500067F04 /* Nimble.framework */; };
+		B6559A9A24B6B07F001D8039 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6559A9924B6B07F001D8039 /* Coin.swift */; };
 		B6CC37AE24B433570019942B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; };
 		B6CC37B024B437530019942B /* VendingMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */; };
 		B6CC37B224B43BC40019942B /* VendingMachineViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */; };
@@ -67,7 +68,7 @@
 		B60E446E24B40FD000067F04 /* VendingMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60E447124B40FD000067F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B60E447324B40FD000067F04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B60E447524B40FD000067F04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B60E447524B40FD000067F04 /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
 		B60E447824B40FD000067F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B60E447A24B40FD200067F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B60E447D24B40FD200067F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		B60E44A824B42D9500067F04 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		B60E44AA24B42DA900067F04 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		B60E44AD24B42DB600067F04 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
+		B6559A9924B6B07F001D8039 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModel.swift; sourceTree = "<group>"; };
 		B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModelTests.swift; sourceTree = "<group>"; };
 		B6CC37B524B44D160019942B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -150,12 +152,13 @@
 				B60E447F24B40FD200067F04 /* Info.plist */,
 				B60E447124B40FD000067F04 /* AppDelegate.swift */,
 				B60E44A324B429F500067F04 /* CoinManager.swift */,
+				B6559A9924B6B07F001D8039 /* Coin.swift */,
 				B6CC37B524B44D160019942B /* Product.swift */,
 				B6CC37B724B4941C0019942B /* ProductManager.swift */,
 				B60E447324B40FD000067F04 /* SceneDelegate.swift */,
 				B6CC37D024B49C820019942B /* Strings.swift */,
 				B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */,
-				B60E447524B40FD000067F04 /* ViewController.swift */,
+				B60E447524B40FD000067F04 /* VendingMachineViewController.swift */,
 				B60E447A24B40FD200067F04 /* Assets.xcassets */,
 				B60E447C24B40FD200067F04 /* LaunchScreen.storyboard */,
 				B60E447724B40FD000067F04 /* Main.storyboard */,
@@ -343,13 +346,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B60E447624B40FD000067F04 /* ViewController.swift in Sources */,
+				B60E447624B40FD000067F04 /* VendingMachineViewController.swift in Sources */,
 				B6CC37B024B437530019942B /* VendingMachineViewModel.swift in Sources */,
 				B6CC37D124B49C820019942B /* Strings.swift in Sources */,
 				B6CC37B824B4941C0019942B /* ProductManager.swift in Sources */,
 				B60E447224B40FD000067F04 /* AppDelegate.swift in Sources */,
 				B60E44A424B429F500067F04 /* CoinManager.swift in Sources */,
 				B60E447424B40FD000067F04 /* SceneDelegate.swift in Sources */,
+				B6559A9A24B6B07F001D8039 /* Coin.swift in Sources */,
 				B6CC37B624B44D160019942B /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
