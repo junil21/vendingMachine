@@ -42,13 +42,16 @@ class CoinManagerTests: QuickSpec {
             describe("insert Coin") {
 
                 let expectedInsertedAmount = 0.50
+                let expectedReturnedAmount = 0.01
                 let expectedInsertedCoins = [CoinType.dime.coin, CoinType.nickel.coin, CoinType.quarter.coin, CoinType.dime.coin]
+                let expectedReturnedCoins = [CoinType.penny.coin]
 
                 beforeEach {
                     subject.insertCoin(coin: CoinType.dime.coin)
                     subject.insertCoin(coin: CoinType.nickel.coin)
                     subject.insertCoin(coin: CoinType.quarter.coin)
                     subject.insertCoin(coin: CoinType.dime.coin)
+                    subject.insertCoin(coin: CoinType.penny.coin)
                 }
 
                 it("updates inserted coin") {
@@ -57,6 +60,14 @@ class CoinManagerTests: QuickSpec {
 
                 it("updates inserted amount") {
                     expect(subject.getInsertedAmount()).to(equal(expectedInsertedAmount))
+                }
+
+                it("updates returned coin") {
+                    expect(subject.returnedCoins).to(equal(expectedReturnedCoins))
+                }
+
+                it("updates returned amount") {
+                    expect(subject.getReturnedAmount()).to(equal(expectedReturnedAmount))
                 }
 
                 describe("check the fund is enough to buy product") {
@@ -81,6 +92,26 @@ class CoinManagerTests: QuickSpec {
                         it("returns") {
                             expect(actual).to(beFalse())
                         }
+                    }
+                }
+
+                describe("sold an Item") {
+                    beforeEach {
+                        subject.justSoldAnItem()
+                    }
+
+                    it("resets the inserted coins") {
+                        expect(subject.insertedCoins).to(beEmpty())
+                    }
+                }
+
+                describe("pickup returned coins") {
+                    beforeEach {
+                        subject.pickupReturnedCoin()
+                    }
+
+                    it("resets the returned coins") {
+                        expect(subject.returnedCoins).to(beEmpty())
                     }
                 }
             }

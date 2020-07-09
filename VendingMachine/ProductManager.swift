@@ -14,8 +14,7 @@ class ProductManager {
         restock()
     }
 
-    var productStock: [Product] = []
-    var dispensedProduct: Product?
+    private(set) var productStock: [Product] = []
 
     func isAvailable(product: Product) -> Bool {
         return productStock.contains(product)
@@ -27,15 +26,11 @@ class ProductManager {
         }
     }
 
-
     func restock() {
-        productStock = [
-            ProductType.candy.product,
-            ProductType.cola.product,
-            ProductType.chips.product,
-            ProductType.cola.product,
-            ProductType.chips.product,
-            ProductType.candy.product
-        ]
+        for _ in 1...2 {
+            productStock.append(ProductType.cola.product)
+            productStock.append(ProductType.chips.product)
+            productStock.append(ProductType.candy.product)
+        }
     }
 }

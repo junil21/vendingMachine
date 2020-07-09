@@ -16,18 +16,20 @@ class VendingMachineViewModelTests: QuickSpec {
         describe("VendingMachineViewModel") {
             var subject: VendingMachineViewModel!
             var coinManager: MockCoinManager!
+            var productManager: MockProductManager!
 
 
             beforeEach {
                 coinManager = MockCoinManager()
-                subject = VendingMachineViewModel(acceptCoinsManager: coinManager)
+                productManager = MockProductManager()
+                subject = VendingMachineViewModel(coinManager: coinManager, productManager: productManager)
             }
 
             describe("insert coins") {
                 let expectedCoin = CoinType.quarter.coin
 
                 beforeEach {
-                    coinManager.insertCoin(coin: CoinType.quarter.coin)
+                    subject.insertCoin(coin: CoinType.quarter.coin)
                 }
 
                 it("updates inserted coins") {
@@ -63,6 +65,34 @@ class VendingMachineViewModelTests: QuickSpec {
                 }
             }
 
+            describe("get returned coin text") {
+                describe("No coin returned") {
+                    var insertedAmountString: String!
+
+                    beforeEach {
+                        coinManager.setReturnValue(for: .getReturnedAmount, with: Double.zero)
+                        insertedAmountString = subject.getReturnedCoinAmountText()
+                    }
+
+                    it("returns empty text") {
+                        expect(insertedAmountString).to(equal(""))
+                    }
+                }
+
+                describe("some coin returned") {
+                    var insertedAmountString: String!
+
+                    beforeEach {
+                        coinManager.setReturnValue(for: .getReturnedAmount, with: Double(0.1))
+                        insertedAmountString = subject.getReturnedCoinAmountText()
+                    }
+
+                    it("returns the formatted coin amount") {
+                        expect(insertedAmountString).to(equal("0.10"))
+                    }
+                }
+            }
+
             describe("select product") {
                 var actualMachineStatus: MachineDisplayStatus!
 
@@ -74,6 +104,10 @@ class VendingMachineViewModelTests: QuickSpec {
 
                     it("returns productSold status") {
                         expect(actualMachineStatus).to(equal(.productSold))
+                    }
+
+                    it("call coin manager justSoldAnItem") {
+                        expect(coinManager).to(invoke(.justSoldAnItem))
                     }
                 }
 

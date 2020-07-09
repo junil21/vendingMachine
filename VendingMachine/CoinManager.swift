@@ -10,10 +10,15 @@ import Foundation
 
 class CoinManager {
 
+    private(set) var machineCoins: [Coin] = []
     private(set) var insertedCoins: [Coin] = []
     private(set) var returnedCoins: [Coin] = []
 
     let acceptableCoins: [CoinType] = [.dime, .nickel, .quarter]
+
+    init() {
+        setupMachineFund()
+    }
 
     func isValidCoin(insertedCoin: Coin) -> Bool {
         return acceptableCoins.contains(insertedCoin.type)
@@ -39,4 +44,15 @@ class CoinManager {
         insertedCoins = []
     }
 
+    func pickupReturnedCoin() {
+        returnedCoins = []
+    }
+
+    func setupMachineFund() {
+        for _ in 1...10 {
+            machineCoins.append(CoinType.nickel.coin)
+            machineCoins.append(CoinType.dime.coin)
+            machineCoins.append(CoinType.quarter.coin)
+        }
+    }
 }

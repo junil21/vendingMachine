@@ -20,6 +20,8 @@
 		B60E44AB24B42DA900067F04 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B60E44AF24B42E2D00067F04 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44A824B42D9500067F04 /* Nimble.framework */; };
 		B6559A9A24B6B07F001D8039 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6559A9924B6B07F001D8039 /* Coin.swift */; };
+		B68C053A24B6D2790037ADAE /* VendingMachineViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053924B6D2790037ADAE /* VendingMachineViewControllerTests.swift */; };
+		B68C053C24B6D8DD0037ADAE /* ProductManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053B24B6D8DD0037ADAE /* ProductManagerTests.swift */; };
 		B6CC37AE24B433570019942B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; };
 		B6CC37B024B437530019942B /* VendingMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */; };
 		B6CC37B224B43BC40019942B /* VendingMachineViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */; };
@@ -84,6 +86,8 @@
 		B60E44AA24B42DA900067F04 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		B60E44AD24B42DB600067F04 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		B6559A9924B6B07F001D8039 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		B68C053924B6D2790037ADAE /* VendingMachineViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewControllerTests.swift; sourceTree = "<group>"; };
+		B68C053B24B6D8DD0037ADAE /* ProductManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManagerTests.swift; sourceTree = "<group>"; };
 		B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModel.swift; sourceTree = "<group>"; };
 		B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModelTests.swift; sourceTree = "<group>"; };
 		B6CC37B524B44D160019942B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -171,7 +175,9 @@
 			children = (
 				B60E448A24B40FD200067F04 /* Info.plist */,
 				B60E44A524B42C2300067F04 /* CoinManagerTests.swift */,
+				B68C053B24B6D8DD0037ADAE /* ProductManagerTests.swift */,
 				B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */,
+				B68C053924B6D2790037ADAE /* VendingMachineViewControllerTests.swift */,
 				B6CC37C324B499430019942B /* Mock */,
 				B6CC37B924B4980D0019942B /* Mocks */,
 			);
@@ -366,6 +372,8 @@
 				B6CC37BD24B4984A0019942B /* MockProductManager.swift in Sources */,
 				B6CC37BB24B4983B0019942B /* MockCoinManager.swift in Sources */,
 				B6CC37CD24B499800019942B /* Mocker.swift in Sources */,
+				B68C053A24B6D2790037ADAE /* VendingMachineViewControllerTests.swift in Sources */,
+				B68C053C24B6D8DD0037ADAE /* ProductManagerTests.swift in Sources */,
 				B6CC37CE24B499800019942B /* Mockable.swift in Sources */,
 				B6CC37CF24B499800019942B /* MockMatchers.swift in Sources */,
 				B60E44A624B42C2300067F04 /* CoinManagerTests.swift in Sources */,
