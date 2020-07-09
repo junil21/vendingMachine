@@ -23,6 +23,10 @@ class VendingMachineViewModel: NSObject {
         coinManager.insertCoin(coin: coin)
     }
 
+    func returnCoins() {
+        coinManager.returnCoins()
+    }
+
     func getCoinAmountText() -> String {
         let amount = coinManager.getInsertedAmount()
         return amount != 0 ? String(format: "%.2f", amount) : Strings.insufficientCoinText
@@ -35,11 +39,17 @@ class VendingMachineViewModel: NSObject {
 
     func selectProduct(selectedProductType: ProductType) -> MachineDisplayStatus {
         let product = selectedProductType.product
-        if coinManager.isTheFundEnough(product: product) {
-            coinManager.calculateChanges(product: product)
-            return .productSold
+
+        guard productManager.isAvailable(product: product) else {
+            return .soldOut
         }
-        return .insufficientFund
+
+        guard coinManager.isTheFundEnough(product: product) else {
+            return .insufficientFund
+        }
+
+        coinManager.calculateChanges(product: product)
+        return .productSold
     }
 }
 
@@ -47,6 +57,7 @@ enum MachineDisplayStatus: String {
     case someCoins
     case productSold
     case insufficientFund
+    case soldOut
     case noCoin
 }
 

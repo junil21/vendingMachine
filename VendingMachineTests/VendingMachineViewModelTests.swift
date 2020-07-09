@@ -65,30 +65,40 @@ class VendingMachineViewModelTests: QuickSpec {
                 }
             }
 
+            describe("returns the coins") {
+                beforeEach {
+                    subject.returnCoins()
+                }
+
+                it("calls coin manager to return the coins") {
+                    expect(coinManager).to(invoke(.returnCoins))
+                }
+            }
+
             describe("get returned coin text") {
                 describe("No coin returned") {
-                    var insertedAmountString: String!
+                    var returnedAmountString: String!
 
                     beforeEach {
                         coinManager.setReturnValue(for: .getReturnedAmount, with: Double.zero)
-                        insertedAmountString = subject.getReturnedCoinAmountText()
+                        returnedAmountString = subject.getReturnedCoinAmountText()
                     }
 
                     it("returns empty text") {
-                        expect(insertedAmountString).to(equal(""))
+                        expect(returnedAmountString).to(equal(""))
                     }
                 }
 
                 describe("some coin returned") {
-                    var insertedAmountString: String!
+                    var returnedAmountString: String!
 
                     beforeEach {
                         coinManager.setReturnValue(for: .getReturnedAmount, with: Double(0.1))
-                        insertedAmountString = subject.getReturnedCoinAmountText()
+                        returnedAmountString = subject.getReturnedCoinAmountText()
                     }
 
                     it("returns the formatted coin amount") {
-                        expect(insertedAmountString).to(equal("0.10"))
+                        expect(returnedAmountString).to(equal("0.10"))
                     }
                 }
             }
@@ -96,9 +106,22 @@ class VendingMachineViewModelTests: QuickSpec {
             describe("select product") {
                 var actualMachineStatus: MachineDisplayStatus!
 
+                describe("sold out") {
+                    beforeEach {
+                        coinManager.setReturnValue(for: .hasEnoughFund, with: false)
+                        productManager.setReturnValue(for: .isAvailable, with: false)
+                        actualMachineStatus = subject.selectProduct(selectedProductType: .cola)
+                    }
+
+                    it("returns soldOut status") {
+                        expect(actualMachineStatus).to(equal(.soldOut))
+                    }
+                }
+
                 describe("sufficient fund") {
                     beforeEach {
                         coinManager.setReturnValue(for: .hasEnoughFund, with: true)
+                        productManager.setReturnValue(for: .isAvailable, with: true)
                         actualMachineStatus = subject.selectProduct(selectedProductType: .cola)
                     }
 
@@ -114,6 +137,7 @@ class VendingMachineViewModelTests: QuickSpec {
                 describe("insufficient fund") {
                     beforeEach {
                         coinManager.setReturnValue(for: .hasEnoughFund, with: false)
+                        productManager.setReturnValue(for: .isAvailable, with: true)
                         actualMachineStatus = subject.selectProduct(selectedProductType: .cola)
                     }
 

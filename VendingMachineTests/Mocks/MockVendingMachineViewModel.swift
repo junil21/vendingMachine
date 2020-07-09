@@ -18,6 +18,7 @@ class MockVendingMachineViewModel: VendingMachineViewModel, Mockable {
         case getCoinAmountText
         case getReturnedCoinAmountText
         case selectProduct
+        case returnCoins
     }
 
     init() {
@@ -41,5 +42,9 @@ class MockVendingMachineViewModel: VendingMachineViewModel, Mockable {
     override func selectProduct(selectedProductType: ProductType) -> MachineDisplayStatus {
         record(invocation: .selectProduct, with: selectedProductType)
         return returnValue(for: .selectProduct)!
+    }
+
+    override func returnCoins() {
+        record(invocation: .returnCoins)
     }
 }

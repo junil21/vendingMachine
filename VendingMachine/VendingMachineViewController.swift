@@ -53,11 +53,13 @@ class VendingMachineViewController: UIViewController {
     @IBAction func pickupProductAndChange() {
         updateDisplayByStatus(status: .noCoin)
         dispenserButton.isEnabled = false
+        viewModel.returnCoins()
     }
 
     private func insertCoin(coinType: CoinType) {
         viewModel.insertCoin(coin: coinType.coin)
         updateDisplayByStatus(status: .someCoins)
+        dispenserButton.isEnabled = true
     }
 
 
@@ -87,6 +89,8 @@ class VendingMachineViewController: UIViewController {
             statusLabel.text = Strings.productSoldText
         case .insufficientFund:
             statusLabel.text = "PRICE: $\(product?.priceText ?? "") || \(viewModel.getCoinAmountText())"
+        case .soldOut:
+            statusLabel.text = "SOLD OUT || \(viewModel.getCoinAmountText())"
         default:
             statusLabel.text = viewModel.getCoinAmountText()
         }

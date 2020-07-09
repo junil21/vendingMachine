@@ -122,11 +122,15 @@ class CoinManagerTests: QuickSpec {
 
                 describe("pickup returned coins") {
                     beforeEach {
-                        subject.pickupReturnedCoin()
+                        subject.returnCoins()
                     }
 
                     it("resets the returned coins") {
                         expect(subject.returnedCoins).to(beEmpty())
+                    }
+
+                    it("resets the inserted coins") {
+                        expect(subject.insertedCoins).to(beEmpty())
                     }
                 }
             }

@@ -74,7 +74,8 @@ class CoinManager {
         returnedCoins.append(coin)
     }
 
-    func pickupReturnedCoin() {
+    func returnCoins() {
+        insertedCoins = []
         returnedCoins = []
     }
 

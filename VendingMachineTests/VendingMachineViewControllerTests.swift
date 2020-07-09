@@ -127,6 +127,27 @@ class VendingMachineViewControllerTests: QuickSpec {
 
                 describe("select product") {
 
+                    describe("product is soldOut") {
+                        let expectedAmountText = "String"
+                        let expectedLabelText = "SOLD OUT || \(expectedAmountText)"
+
+                        beforeEach {
+                            viewModel.reset()
+                            viewModel.setReturnValue(for: .selectProduct, with: MachineDisplayStatus.soldOut)
+                            viewModel.setReturnValue(for: .getCoinAmountText, with: expectedAmountText)
+                            subject.colaButton.sendActions(for: .touchUpInside)
+                        }
+
+                        it("gets amount text from the view model") {
+                            expect(viewModel).to(invoke(.getCoinAmountText))
+                        }
+
+                        it("updates the display text") {
+                            expect(subject.statusLabel.text).to(equal(expectedLabelText))
+                        }
+
+                    }
+
                     describe("product and fund are available") {
                         beforeEach {
                             viewModel.setReturnValue(for: .selectProduct, with: MachineDisplayStatus.productSold)
@@ -175,7 +196,7 @@ class VendingMachineViewControllerTests: QuickSpec {
 
                             describe("pick up changes") {
                                 beforeEach {
-                                    subject.pickupProductAndChange()
+                                    subject.dispenserButton.sendActions(for: .touchUpInside)
                                 }
 
                                 it("updates display text") {
@@ -184,6 +205,10 @@ class VendingMachineViewControllerTests: QuickSpec {
 
                                 it("sets dispenser button disable") {
                                     expect(subject.dispenserButton.isEnabled).to(beFalse())
+                                }
+
+                                it("returns the coins") {
+                                    expect(viewModel).to(invoke(.returnCoins))
                                 }
                             }
                         }
