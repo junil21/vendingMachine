@@ -22,6 +22,7 @@
 		B6559A9A24B6B07F001D8039 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6559A9924B6B07F001D8039 /* Coin.swift */; };
 		B68C053A24B6D2790037ADAE /* VendingMachineViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053924B6D2790037ADAE /* VendingMachineViewControllerTests.swift */; };
 		B68C053C24B6D8DD0037ADAE /* ProductManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053B24B6D8DD0037ADAE /* ProductManagerTests.swift */; };
+		B68C053E24B6E03C0037ADAE /* MockVendingMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053D24B6E03C0037ADAE /* MockVendingMachineViewModel.swift */; };
 		B6CC37AE24B433570019942B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; };
 		B6CC37B024B437530019942B /* VendingMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */; };
 		B6CC37B224B43BC40019942B /* VendingMachineViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */; };
@@ -88,6 +89,7 @@
 		B6559A9924B6B07F001D8039 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		B68C053924B6D2790037ADAE /* VendingMachineViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewControllerTests.swift; sourceTree = "<group>"; };
 		B68C053B24B6D8DD0037ADAE /* ProductManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManagerTests.swift; sourceTree = "<group>"; };
+		B68C053D24B6E03C0037ADAE /* MockVendingMachineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVendingMachineViewModel.swift; sourceTree = "<group>"; };
 		B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModel.swift; sourceTree = "<group>"; };
 		B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewModelTests.swift; sourceTree = "<group>"; };
 		B6CC37B524B44D160019942B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				B6CC37BA24B4983B0019942B /* MockCoinManager.swift */,
 				B6CC37BC24B4984A0019942B /* MockProductManager.swift */,
+				B68C053D24B6E03C0037ADAE /* MockVendingMachineViewModel.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				B6CC37BD24B4984A0019942B /* MockProductManager.swift in Sources */,
 				B6CC37BB24B4983B0019942B /* MockCoinManager.swift in Sources */,
 				B6CC37CD24B499800019942B /* Mocker.swift in Sources */,
+				B68C053E24B6E03C0037ADAE /* MockVendingMachineViewModel.swift in Sources */,
 				B68C053A24B6D2790037ADAE /* VendingMachineViewControllerTests.swift in Sources */,
 				B68C053C24B6D8DD0037ADAE /* ProductManagerTests.swift in Sources */,
 				B6CC37CE24B499800019942B /* Mockable.swift in Sources */,
