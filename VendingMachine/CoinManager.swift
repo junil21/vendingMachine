@@ -14,7 +14,7 @@ class CoinManager {
     private(set) var insertedCoins: [Coin] = []
     private(set) var returnedCoins: [Coin] = []
 
-    let acceptableCoins: [CoinType] = [.dime, .nickel, .quarter]
+    let acceptableCoins: [CoinType] = [.quarter, .dime, .nickel]
 
     init() {
         setupMachineFund()
@@ -36,12 +36,42 @@ class CoinManager {
         return returnedCoins.reduce(0) { $0 + $1.value }
     }
 
-    func hasEnoughFund(product: Product) -> Bool {
+    func isTheFundEnough(product: Product) -> Bool {
         return getInsertedAmount() >= product.price
     }
 
-    func justSoldAnItem() {
-        insertedCoins = []
+    func calculateChanges(product: Product) {
+
+        let amount = getInsertedAmount()
+        var changeAmount = amount - product.price
+        machineCoins.append(contentsOf: insertedCoins)
+        insertedCoins.removeAll()
+
+        for coinType in acceptableCoins {
+            changeAmount = calculateChangesByCoin(changeAmount: changeAmount, coin: coinType.coin)
+        }
+    }
+
+    private func calculateChangesByCoin(changeAmount: Double, coin: Coin) -> Double {
+
+        let roundedChange = (changeAmount*100).rounded(.toNearestOrAwayFromZero)
+        let roundedCoin = (coin.value*100).rounded(.toNearestOrAwayFromZero)
+        let coinCount = Int(roundedChange / roundedCoin)
+
+        if coinCount > 0 {
+            for _ in 1 ... coinCount {
+                returnCoin(coin: coin)
+            }
+        }
+
+        return changeAmount - (Double(coinCount) * coin.value)
+    }
+
+    private func returnCoin(coin: Coin) {
+        if let index = machineCoins.firstIndex(of: coin){
+            machineCoins.remove(at: index)
+        }
+        returnedCoins.append(coin)
     }
 
     func pickupReturnedCoin() {
@@ -49,10 +79,8 @@ class CoinManager {
     }
 
     func setupMachineFund() {
-        for _ in 1...10 {
-            machineCoins.append(CoinType.nickel.coin)
-            machineCoins.append(CoinType.dime.coin)
-            machineCoins.append(CoinType.quarter.coin)
+        for _ in 1...100 {
+            machineCoins.append(contentsOf: [CoinType.nickel.coin, CoinType.dime.coin, CoinType.quarter.coin])
         }
     }
 }

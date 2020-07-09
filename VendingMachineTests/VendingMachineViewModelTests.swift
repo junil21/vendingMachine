@@ -106,12 +106,12 @@ class VendingMachineViewModelTests: QuickSpec {
                         expect(actualMachineStatus).to(equal(.productSold))
                     }
 
-                    it("call coin manager justSoldAnItem") {
-                        expect(coinManager).to(invoke(.justSoldAnItem))
+                    it("call coin manager calculateChanges") {
+                        expect(coinManager).to(invoke(.calculateChanges, withParameter: ProductType.cola.product))
                     }
                 }
 
-                describe("sufficient fund") {
+                describe("insufficient fund") {
                     beforeEach {
                         coinManager.setReturnValue(for: .hasEnoughFund, with: false)
                         actualMachineStatus = subject.selectProduct(selectedProductType: .cola)

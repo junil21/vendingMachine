@@ -34,8 +34,9 @@ class VendingMachineViewModel: NSObject {
     }
 
     func selectProduct(selectedProductType: ProductType) -> MachineDisplayStatus {
-        if coinManager.hasEnoughFund(product: selectedProductType.product) {
-            coinManager.justSoldAnItem()
+        let product = selectedProductType.product
+        if coinManager.isTheFundEnough(product: product) {
+            coinManager.calculateChanges(product: product)
             return .productSold
         }
         return .insufficientFund
