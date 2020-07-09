@@ -86,7 +86,7 @@ class VendingMachineViewController: UIViewController {
         case .productSold:
             statusLabel.text = Strings.productSoldText
         case .insufficientFund:
-            statusLabel.text = "PRICE: \(product?.priceText ?? "") || \(viewModel.getCoinAmountText())"
+            statusLabel.text = "PRICE: $\(product?.priceText ?? "") || \(viewModel.getCoinAmountText())"
         default:
             statusLabel.text = viewModel.getCoinAmountText()
         }

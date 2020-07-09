@@ -126,13 +126,90 @@ class VendingMachineViewControllerTests: QuickSpec {
                 }
 
                 describe("select product") {
-                    context("cola") {
+
+                    describe("product and fund are available") {
                         beforeEach {
+                            viewModel.setReturnValue(for: .selectProduct, with: MachineDisplayStatus.productSold)
+                        }
+
+                        context("cola") {
+                            beforeEach {
+                                subject.colaButton.sendActions(for: .touchUpInside)
+                            }
+
+                            it("selects the cola") {
+                                expect(viewModel).to(invoke(.selectProduct, withParameter: ProductType.cola))
+                            }
+
+                            it("sets dispenser button enabled") {
+                                expect(subject.dispenserButton.isEnabled).to(beTrue())
+                            }
+                        }
+
+                        context("chips") {
+                            beforeEach {
+                                subject.chipsButton.sendActions(for: .touchUpInside)
+                            }
+
+                            it("selects the chips") {
+                                expect(viewModel).to(invoke(.selectProduct, withParameter: ProductType.chips))
+                            }
+
+                            it("sets dispenser button enabled") {
+                                expect(subject.dispenserButton.isEnabled).to(beTrue())
+                            }
+                        }
+
+                        context("candy") {
+                            beforeEach {
+                                subject.candyButton.sendActions(for: .touchUpInside)
+                            }
+
+                            it("selects the candy") {
+                                expect(viewModel).to(invoke(.selectProduct, withParameter: ProductType.candy))
+                            }
+
+                            it("sets dispenser button enabled") {
+                                expect(subject.dispenserButton.isEnabled).to(beTrue())
+                            }
+
+                            describe("pick up changes") {
+                                beforeEach {
+                                    subject.pickupProductAndChange()
+                                }
+
+                                it("updates display text") {
+                                    expect(subject.statusLabel.text).to(equal("INSERT COIN"))
+                                }
+
+                                it("sets dispenser button disable") {
+                                    expect(subject.dispenserButton.isEnabled).to(beFalse())
+                                }
+                            }
+                        }
+                    }
+
+                    describe("insufficient fund") {
+                        let expectedAmountText = "String"
+                        let expectedLabelText = "PRICE: $1.00 || \(expectedAmountText)"
+
+                        beforeEach {
+                            viewModel.reset()
+                            viewModel.setReturnValue(for: .getCoinAmountText, with: expectedAmountText)
+                            viewModel.setReturnValue(for: .selectProduct, with: MachineDisplayStatus.insufficientFund)
                             subject.colaButton.sendActions(for: .touchUpInside)
                         }
 
-                        it("selects the cola") {
-                            expect(viewModel).to(invoke(.selectProduct, withParameter: ProductType.cola))
+                        it("dispenser button disabled") {
+                            expect(subject.dispenserButton.isEnabled).to(beFalse())
+                        }
+
+                        it("gets amount text from the view model") {
+                            expect(viewModel).to(invoke(.getCoinAmountText))
+                        }
+
+                        it("updates the display text") {
+                            expect(subject.statusLabel.text).to(equal(expectedLabelText))
                         }
                     }
                 }
