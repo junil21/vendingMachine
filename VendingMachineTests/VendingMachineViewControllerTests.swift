@@ -25,7 +25,23 @@ class VendingMachineViewControllerTests: QuickSpec {
                 subject._viewModelFactory = { _, _ in viewModel }
 
                 viewModel.setReturnValue(for: .getCoinAmountText, with: Strings.insufficientCoinText)
+                viewModel.setReturnValue(for: .isExactChangeOnly, with: false)
+            }
 
+            describe("view did load with exact change only") {
+                beforeEach {
+                    viewModel.reset()
+                    viewModel.setReturnValue(for: .isExactChangeOnly, with: true)
+                    _ = subject.view
+                }
+
+                it("check exact change only") {
+                    expect(viewModel).to(invoke(.isExactChangeOnly))
+                }
+
+                it("updates display text") {
+                    expect(subject.statusLabel.text).to(equal("EXACT CHANGE ONLY"))
+                }
             }
 
             describe("view did load") {
@@ -39,6 +55,10 @@ class VendingMachineViewControllerTests: QuickSpec {
 
                 it("gets amount text from the view model") {
                     expect(viewModel).to(invoke(.getCoinAmountText))
+                }
+
+                it("check exact change only") {
+                    expect(viewModel).to(invoke(.isExactChangeOnly))
                 }
 
                 it("updates display text") {

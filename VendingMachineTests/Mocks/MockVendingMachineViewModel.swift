@@ -19,6 +19,7 @@ class MockVendingMachineViewModel: VendingMachineViewModel, Mockable {
         case getReturnedCoinAmountText
         case selectProduct
         case returnCoins
+        case isExactChangeOnly
     }
 
     init() {
@@ -46,5 +47,10 @@ class MockVendingMachineViewModel: VendingMachineViewModel, Mockable {
 
     override func returnCoins() {
         record(invocation: .returnCoins)
+    }
+
+    override func isExactChangeOnly() -> Bool {
+        record(invocation: .isExactChangeOnly)
+        return returnValue(for: .isExactChangeOnly)!
     }
 }

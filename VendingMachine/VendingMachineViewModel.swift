@@ -19,6 +19,10 @@ class VendingMachineViewModel: NSObject {
         self.productManager = productManager
     }
 
+    func isExactChangeOnly() -> Bool {
+        return coinManager.isExactChangeOnly()
+    }
+
     func insertCoin(coin: Coin) {
         coinManager.insertCoin(coin: coin)
     }
@@ -29,12 +33,16 @@ class VendingMachineViewModel: NSObject {
 
     func getCoinAmountText() -> String {
         let amount = coinManager.getInsertedAmount()
-        return amount != 0 ? String(format: "%.2f", amount) : Strings.insufficientCoinText
+        return amount != 0 ? formatPriceString(amount: amount) : Strings.insufficientCoinText
     }
 
     func getReturnedCoinAmountText() -> String {
         let amount = coinManager.getReturnedAmount()
-        return amount != 0 ? String(format: "%.2f", amount) : ""
+        return amount != 0 ? formatPriceString(amount: amount) : ""
+    }
+
+    private func formatPriceString(amount: Double) -> String {
+        return String(format: "$%.2f", amount)
     }
 
     func selectProduct(selectedProductType: ProductType) -> MachineDisplayStatus {
@@ -59,5 +67,6 @@ enum MachineDisplayStatus: String {
     case insufficientFund
     case soldOut
     case noCoin
+    case exactChangeOnly
 }
 

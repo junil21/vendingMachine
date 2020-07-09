@@ -25,6 +25,24 @@ class VendingMachineViewModelTests: QuickSpec {
                 subject = VendingMachineViewModel(coinManager: coinManager, productManager: productManager)
             }
 
+            describe("exact change only") {
+                var actual: Bool!
+
+                beforeEach {
+                    coinManager.reset()
+                    coinManager.setReturnValue(for: .isExactChangeOnly, with: false)
+                    actual = subject.isExactChangeOnly()
+                }
+
+                it("checks with coin manager") {
+                    expect(coinManager).to(invoke(.isExactChangeOnly))
+                }
+
+                it("returns the result"){
+                    expect(actual).to(beFalse())
+                }
+            }
+
             describe("insert coins") {
                 let expectedCoin = CoinType.quarter.coin
 
@@ -60,7 +78,7 @@ class VendingMachineViewModelTests: QuickSpec {
                     }
 
                     it("shows the formatted coin amount") {
-                        expect(insertedAmountString).to(equal("0.25"))
+                        expect(insertedAmountString).to(equal("$0.25"))
                     }
                 }
             }
@@ -98,7 +116,7 @@ class VendingMachineViewModelTests: QuickSpec {
                     }
 
                     it("returns the formatted coin amount") {
-                        expect(returnedAmountString).to(equal("0.10"))
+                        expect(returnedAmountString).to(equal("$0.10"))
                     }
                 }
             }

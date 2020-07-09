@@ -31,7 +31,12 @@ class VendingMachineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = _viewModelFactory(CoinManager(), ProductManager())
-        updateDisplayByStatus(status: .noCoin)
+
+        if viewModel.isExactChangeOnly() {
+            updateDisplayByStatus(status: .exactChangeOnly)
+        } else {
+            updateDisplayByStatus(status: .noCoin)
+        }
     }
 
     @IBAction func insertPenny() {
@@ -91,6 +96,8 @@ class VendingMachineViewController: UIViewController {
             statusLabel.text = "PRICE: $\(product?.priceText ?? "") || \(viewModel.getCoinAmountText())"
         case .soldOut:
             statusLabel.text = "SOLD OUT || \(viewModel.getCoinAmountText())"
+        case .exactChangeOnly:
+            statusLabel.text = Strings.exactChangeOnlyText
         default:
             statusLabel.text = viewModel.getCoinAmountText()
         }

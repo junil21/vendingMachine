@@ -17,11 +17,19 @@ class CoinManager {
     let acceptableCoins: [CoinType] = [.quarter, .dime, .nickel]
 
     init() {
-        setupMachineFund()
+        setupDefaultMachineFund()
+    }
+
+    func setMachineFund(coins: [Coin]) {
+        machineCoins.append(contentsOf: coins)
     }
 
     func isValidCoin(insertedCoin: Coin) -> Bool {
         return acceptableCoins.contains(insertedCoin.type)
+    }
+
+    func isExactChangeOnly() -> Bool {
+        return machineCoins.isEmpty
     }
 
     func insertCoin(coin: Coin) {
@@ -79,9 +87,12 @@ class CoinManager {
         returnedCoins = []
     }
 
-    func setupMachineFund() {
-        for _ in 1...100 {
-            machineCoins.append(contentsOf: [CoinType.nickel.coin, CoinType.dime.coin, CoinType.quarter.coin])
+    func setupDefaultMachineFund() {
+        var coins:[Coin] = []
+        for _ in 1...3 {
+            coins.append(contentsOf: [CoinType.nickel.coin, CoinType.dime.coin, CoinType.quarter.coin])
         }
+
+        setMachineFund(coins: coins)
     }
 }

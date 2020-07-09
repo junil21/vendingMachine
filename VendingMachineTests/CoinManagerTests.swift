@@ -39,6 +39,18 @@ class CoinManagerTests: QuickSpec {
                 }
             }
 
+            describe("check exact change required") {
+                var actual: Bool!
+                beforeEach {
+                    subject.setMachineFund(coins: [CoinType.nickel.coin, CoinType.dime.coin, CoinType.quarter.coin])
+                    actual = subject.isExactChangeOnly()
+                }
+
+                it("checks machine has enough coins") {
+                    expect(actual).to(beFalse())
+                }
+            }
+
             describe("insert Coin") {
 
                 let expectedInsertedAmount = 0.85

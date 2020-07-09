@@ -21,6 +21,8 @@ class MockCoinManager: CoinManager, Mockable {
         case getReturnedAmount
         case calculateChanges
         case returnCoins
+        case isExactChangeOnly
+        case setMachineFund
     }
 
     override func insertCoin(coin: Coin) {
@@ -48,5 +50,14 @@ class MockCoinManager: CoinManager, Mockable {
 
     override func returnCoins() {
         record(invocation: .returnCoins)
+    }
+
+    override func isExactChangeOnly() -> Bool {
+        record(invocation: .isExactChangeOnly)
+        return returnValue(for: .isExactChangeOnly)!
+    }
+
+    override func setMachineFund(coins: [Coin]) {
+        record(invocation: .isExactChangeOnly, with: coins)
     }
 }
