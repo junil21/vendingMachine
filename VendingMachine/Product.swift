@@ -16,6 +16,10 @@ struct Product: Equatable {
         self.name = name
         self.price = price
     }
+
+    var priceText: String {
+        return String(format: "%.2f", price)
+    }
 }
 
 enum ProductType {

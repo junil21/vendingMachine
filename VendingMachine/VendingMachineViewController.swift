@@ -51,7 +51,8 @@ class VendingMachineViewController: UIViewController {
     }
 
     @IBAction func pickupProductAndChange() {
-        
+        updateDisplayByStatus(status: .noCoin)
+        dispenserButton.isEnabled = false
     }
 
     private func insertCoin(coinType: CoinType) {
@@ -59,17 +60,33 @@ class VendingMachineViewController: UIViewController {
         updateDisplayByStatus(status: .someCoins)
     }
 
-    private func selectProduct(productType: ProductType) {
-        let status = viewModel.selectProduct(selectedProductType: productType)
-        updateDisplayByStatus(status: status)
+
+    @IBAction func selectCola() {
+        selectProduct(productType: .cola)
     }
 
-    private func updateDisplayByStatus(status: MachineDisplayStatus) {
+    @IBAction func selectChips() {
+        selectProduct(productType: .chips)
+    }
+
+    @IBAction func selectCandy() {
+        selectProduct(productType: .candy)
+    }
+
+    private func selectProduct(productType: ProductType) {
+        let status = viewModel.selectProduct(selectedProductType: productType)
+        updateDisplayByStatus(status: status, product: productType.product)
+        if status == .productSold {
+            dispenserButton.isEnabled = true
+        }
+    }
+
+    private func updateDisplayByStatus(status: MachineDisplayStatus, product: Product? = nil) {
         switch status {
         case .productSold:
             statusLabel.text = Strings.productSoldText
         case .insufficientFund:
-            statusLabel.text = Strings.insufficientCoinText
+            statusLabel.text = "PRICE: \(product?.priceText ?? "") || \(viewModel.getCoinAmountText())"
         default:
             statusLabel.text = viewModel.getCoinAmountText()
         }
