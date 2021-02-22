@@ -16,14 +16,12 @@
 		B60E449424B40FD200067F04 /* VendingMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E449324B40FD200067F04 /* VendingMachineUITests.swift */; };
 		B60E44A424B429F500067F04 /* CoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E44A324B429F500067F04 /* CoinManager.swift */; };
 		B60E44A624B42C2300067F04 /* CoinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E44A524B42C2300067F04 /* CoinManagerTests.swift */; };
-		B60E44A924B42D9500067F04 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B60E44A824B42D9500067F04 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B60E44AB24B42DA900067F04 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B60E44AF24B42E2D00067F04 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44A824B42D9500067F04 /* Nimble.framework */; };
 		B6559A9A24B6B07F001D8039 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6559A9924B6B07F001D8039 /* Coin.swift */; };
 		B68C053A24B6D2790037ADAE /* VendingMachineViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053924B6D2790037ADAE /* VendingMachineViewControllerTests.swift */; };
 		B68C053C24B6D8DD0037ADAE /* ProductManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053B24B6D8DD0037ADAE /* ProductManagerTests.swift */; };
 		B68C053E24B6E03C0037ADAE /* MockVendingMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C053D24B6E03C0037ADAE /* MockVendingMachineViewModel.swift */; };
-		B6CC37AE24B433570019942B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E44AA24B42DA900067F04 /* Quick.framework */; };
+		B69039AA25E44CD7004D7B27 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B69039A925E44CD7004D7B27 /* Nimble */; };
+		B69039AF25E44D06004D7B27 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B69039AE25E44D06004D7B27 /* Quick */; };
 		B6CC37B024B437530019942B /* VendingMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37AF24B437530019942B /* VendingMachineViewModel.swift */; };
 		B6CC37B224B43BC40019942B /* VendingMachineViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37B124B43BC40019942B /* VendingMachineViewModelTests.swift */; };
 		B6CC37B624B44D160019942B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC37B524B44D160019942B /* Product.swift */; };
@@ -60,8 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B60E44AB24B42DA900067F04 /* Quick.framework in CopyFiles */,
-				B60E44A924B42D9500067F04 /* Nimble.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +79,6 @@
 		B60E449524B40FD200067F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60E44A324B429F500067F04 /* CoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManager.swift; sourceTree = "<group>"; };
 		B60E44A524B42C2300067F04 /* CoinManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManagerTests.swift; sourceTree = "<group>"; };
-		B60E44A824B42D9500067F04 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		B60E44AA24B42DA900067F04 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		B60E44AD24B42DB600067F04 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		B6559A9924B6B07F001D8039 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		B68C053924B6D2790037ADAE /* VendingMachineViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewControllerTests.swift; sourceTree = "<group>"; };
@@ -114,8 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6CC37AE24B433570019942B /* Quick.framework in Frameworks */,
-				B60E44AF24B42E2D00067F04 /* Nimble.framework in Frameworks */,
+				B69039AF25E44D06004D7B27 /* Quick in Frameworks */,
+				B69039AA25E44CD7004D7B27 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +126,6 @@
 		B60E446524B40FD000067F04 = {
 			isa = PBXGroup;
 			children = (
-				B60E44AA24B42DA900067F04 /* Quick.framework */,
-				B60E44A824B42D9500067F04 /* Nimble.framework */,
 				B60E447024B40FD000067F04 /* VendingMachine */,
 				B60E448724B40FD200067F04 /* VendingMachineTests */,
 				B60E449224B40FD200067F04 /* VendingMachineUITests */,
@@ -258,6 +250,10 @@
 				B60E448624B40FD200067F04 /* PBXTargetDependency */,
 			);
 			name = VendingMachineTests;
+			packageProductDependencies = (
+				B69039A925E44CD7004D7B27 /* Nimble */,
+				B69039AE25E44D06004D7B27 /* Quick */,
+			);
 			productName = VendingMachineTests;
 			productReference = B60E448424B40FD200067F04 /* VendingMachineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -312,6 +308,10 @@
 				Base,
 			);
 			mainGroup = B60E446524B40FD000067F04;
+			packageReferences = (
+				B69039A825E44CD7004D7B27 /* XCRemoteSwiftPackageReference "Nimble" */,
+				B69039AD25E44D06004D7B27 /* XCRemoteSwiftPackageReference "Quick" */,
+			);
 			productRefGroup = B60E446F24B40FD000067F04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -707,6 +707,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B69039A825E44CD7004D7B27 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		B69039AD25E44D06004D7B27 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B69039A925E44CD7004D7B27 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B69039A825E44CD7004D7B27 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		B69039AE25E44D06004D7B27 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B69039AD25E44D06004D7B27 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B60E446624B40FD000067F04 /* Project object */;
 }

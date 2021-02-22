@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import UIKit
 
 @testable import VendingMachine
 
